@@ -1,30 +1,34 @@
-import { Author } from "../.js"
-import { Book } from "../books/model.js"
-class BookService {
+import { Pokemon } from "./PokemonModelo.js"
 
-    async Obtener(){
+class PokemonServicio {
+
+    async Obtener() {
         try{
-            return await Book.findAll()
+            return await Pokemon.findAll()
         }
-        catch(error){
+        catch(error) {
             throw error
         }
     }
    
-    async Crear(isbn, name,cantPages,authorId){
+    async Crear(nombre, imagen, tipo, altura, peso, url, id, idubicacion){
         try{
-            return await Book.create({
-                isbn,
-                name,
-                cantPages,
-                authorId
-              })
+            return await Pokemon.create({
+                nombre,
+                imagen,
+                tipo,
+                altura, 
+                peso, 
+                url, 
+                id, 
+                idubicacion
+            })
         }
-        catch(error){
+        catch(error) {
             throw error
         }
     }
 
 }
 
-export {BookService}
+export {PokemonServicio}
