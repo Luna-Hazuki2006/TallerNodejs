@@ -39,3 +39,7 @@ const Pokemon = sequelize.define('Pokemon', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'pokemons' });
+
+export {
+    Pokemon
+}
