@@ -28,6 +28,22 @@ class UsuarioServicio {
         }
     }
 
+    async Actualizar(nombre, apellido, correo, contraseña, 
+        id, cedula){
+        try{
+            return await Usuario.update({
+                nombre,
+                apellido,
+                correo,
+                contraseña, 
+                cedula
+            }, {where: {id: id}}) // solo pasar eso en los otros
+        }
+        catch(error) {
+            throw error
+        }
+    }
+
 }
 
 export {UsuarioServicio}
