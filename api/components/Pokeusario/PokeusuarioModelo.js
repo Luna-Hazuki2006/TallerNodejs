@@ -35,3 +35,7 @@ const Pokeusario = sequelize.define('PokeUsuario', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'pokeusario' });
+
+export {
+    Pokeusario
+}

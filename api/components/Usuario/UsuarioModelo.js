@@ -35,3 +35,7 @@ const Usuario = sequelize.define('Usuario', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'usuario' });
+
+export {
+    Usuario
+}

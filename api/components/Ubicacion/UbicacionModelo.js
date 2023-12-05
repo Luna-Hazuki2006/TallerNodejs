@@ -23,3 +23,7 @@ const Ubicaciones = sequelize.define('Ubicacion', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'sessions' });
+
+export {
+    Ubicaciones
+}
