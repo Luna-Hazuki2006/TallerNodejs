@@ -4,6 +4,8 @@ import { UsuarioServicio } from "./UsuarioServicio";
 class UsuarioControlador {
 
     async Crear(request, response) {
+        // así se obtiene el token
+        // request.headers.authorization
         const servicio = new UsuarioServicio()
         try {
             const {nombre, apellido, correo, contraseña, cedula} = request.body
