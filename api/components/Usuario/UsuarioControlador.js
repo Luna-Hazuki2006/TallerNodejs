@@ -1,5 +1,6 @@
 import { UsuarioServicio } from "./UsuarioServicio";
 // interpretar la peticion y responder
+// LA LÓGICA NO VA AQUÍ
 class UsuarioControlador {
 
     async Crear(request, response) {
