@@ -4,24 +4,18 @@ const router = (app) => {
 
     const controlador = new UsuarioControlador()
 
-    app.get('/usuarios', (request, response)=> {
-        controlador.Obtener(request, response);
-    });
+    app.get('/usuarios', controlador.obtener);
     
     app.get('/usuarios/:id', (request, response)=> {
-        controlador.ObtenerUno(request, response)
+        // controlador.ObtenerUno(request, response)
     })
     
-    app.post('/usuarios', (request, response) => {
-        controlador.Crear(request, response)        
-    });
+    app.post('/usuarios', controlador.crear);
     
-    app.put('/usuarios/:id', (request, response)=> {
-        controlador.Modificar(request, response)
-    })
+    app.put('/usuarios/:id', controlador.modificar)
     
     app.delete('/usuarios/:id', (request, response) =>{
-        controlador.Eliminar(request, response);
+        // controlador.Eliminar(request, response);
     })
     
 }
