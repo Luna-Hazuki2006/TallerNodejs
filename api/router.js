@@ -1,10 +1,15 @@
-var pgp = require("pg-promise")(/*options*/);
-var db = pgp("postgres://gracoapi_user:ZnCbDQBUclZstkJ9fxcpnN1T3NjqWsHm@dpg-cjrq5m5m702s73eo0pmg-a.oregon-postgres.render.com/gracoapi?ssl=true");
+import PokemonRouter from './components/Pokemon/PokemonRouter.js'
+import PokeusarioRouter from './components/Pokeusario/PokeusuarioRouter.js'
+import SesionRouter from './components/Sesion/SesionRouter.js'
+import UbicacionRouter from './components/Ubicacion/UbicacionRouter.js'
+import UsuarioRouter from './components/Usuario/UsuarioRouter.js'
 
-db.manyOrNone("SELECT * from pokemons ", 'informacion')
-.then(function (data) {
-        console.log("DATA:", data);
-})
-.catch(function (error) {
-        console.log("ERROR:", error);
-});
+const router = (app) => {
+    PokemonRouter(app)
+    PokeusarioRouter(app)
+    SesionRouter(app)
+    UbicacionRouter(app)
+    UsuarioRouter(app)
+}
+
+export {router}

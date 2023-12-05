@@ -156,12 +156,15 @@ const Ubicaciones = sequelize.define('Ubicacion', {
     }
 }, { tableName: 'sessions' });
 
-Pokemon.hasMany(Pokemon, { as: 'pokemones', foreignKey: 'g' });
-Book.belongsTo(Author, {
-    foreignKey: "authorId",
+Ubicaciones.hasMany(Pokemon, { as: 'pokemones', foreignKey: 'idubicacion' });
+Pokemon.belongsTo(Ubicaciones, {
+    foreignKey: "idubicacion",
 });
 
 module.exports = {
-    Author,
-    Book
+    Ubicaciones,
+    Pokemon, 
+    Usuario, 
+    Pokeusario, 
+    Sesiones
 };
