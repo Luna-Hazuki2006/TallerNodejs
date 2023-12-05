@@ -1,10 +1,19 @@
 import { Pokemon } from "./PokemonModelo.js"
+import { Ubicaciones } from "../Ubicacion/UbicacionModelo.js"
 
 class PokemonServicio {
 
     async Obtener() {
-        try{
-            return await Pokemon.findAll()
+        try {
+            return await Pokemon.findAll({
+                include: [
+                    {
+                        model: Ubicaciones,
+                        as: 'ubicacion',
+                        attributes: ['id', 'nombre', 'descripcion', 'estatus', 'createdAt']
+                    },
+                ],
+            })
         }
         catch(error) {
             throw error
