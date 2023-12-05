@@ -1,6 +1,3 @@
-//const express = require('express');
-//const parser = require('body-parser');
-
 import  parser  from 'body-parser'
 import  express  from 'express';
 

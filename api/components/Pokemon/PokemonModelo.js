@@ -30,10 +30,6 @@ const Pokemon = sequelize.define('Pokemon', {
         type: DataTypes.STRING, 
         allowNull: false
     }, 
-    id: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW

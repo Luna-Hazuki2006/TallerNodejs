@@ -22,10 +22,6 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.STRING, 
         allowNull: false
     }, 
-    id: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
     cedula: {
         type: DataTypes.STRING, 
         allowNull: false

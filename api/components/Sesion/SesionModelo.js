@@ -2,10 +2,6 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
 
 const Sesiones = sequelize.define('session', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     idUser: {
         type: DataTypes.INTEGER,
         allowNull: false

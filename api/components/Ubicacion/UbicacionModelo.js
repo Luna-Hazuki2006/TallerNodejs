@@ -2,10 +2,6 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
 
 const Ubicaciones = sequelize.define('Ubicacion', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     nombre: {
         type: DataTypes.STRING,
         allowNull: false
