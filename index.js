@@ -5,7 +5,7 @@ import  parser  from 'body-parser'
 import  express  from 'express';
 
 import { router } from './api/router.js'
-import { sequelize } from './api/config/connection.js';
+import { sequelize } from './api/config/coneccion.js';
 
 const app = express();
 
