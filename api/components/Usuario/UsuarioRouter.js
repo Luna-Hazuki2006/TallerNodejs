@@ -10,7 +10,7 @@ const router = (app) => {
         // controlador.ObtenerUno(request, response)
     })
     
-    app.post('/usuarios', controlador.crear);
+    app.post('/usuarios', controlador.Crear);
     
     app.put('/usuarios/:id', controlador.modificar)
     
