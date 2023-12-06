@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
 import {Ubicaciones} from '../Ubicacion/UbicacionModelo'
+import { Pokeusario } from '../Pokeusario/PokeusuarioModelo';
 
 const Pokemon = sequelize.define('Pokemon', {
     nombre: {
@@ -38,6 +39,10 @@ const Pokemon = sequelize.define('Pokemon', {
 }, { tableName: 'pokemons' });
 
 Pokemon.hasOne(Ubicaciones, { as: 'ubicacion', foreignKey: 'idubicacion' });
+
+Pokemon.belongsTo(Pokeusario, {
+    foreignKey: "idpokemon",
+});
 
 export {
     Pokemon

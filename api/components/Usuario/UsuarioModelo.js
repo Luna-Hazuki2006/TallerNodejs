@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
+import { Pokeusario } from '../Pokeusario/PokeusuarioModelo';
 
 const Usuario = sequelize.define('Usuario', {
     nombre: {
@@ -27,6 +28,10 @@ const Usuario = sequelize.define('Usuario', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'usuario' });
+
+Usuario.belongsTo(Pokeusario, {
+    foreignKey: "idusuario",
+});
 
 export {
     Usuario

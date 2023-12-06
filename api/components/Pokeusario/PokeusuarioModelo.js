@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
+import { Pokemon } from '../Pokemon/PokemonModelo';
+import {Usuario} from '../Usuario/UsuarioModelo'
 
 const Pokeusario = sequelize.define('PokeUsuario', {
     idpokemon: {
@@ -35,6 +37,9 @@ const Pokeusario = sequelize.define('PokeUsuario', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'pokeusario' });
+
+Pokeusario.hasOne(Usuario, { as: 'usuario', foreignKey: 'idusuario' });
+Pokeusario.hasOne(Pokemon, { as: 'pokemons', foreignKey: 'idpokemon' });
 
 export {
     Pokeusario
