@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
+import { Usuario } from '../Usuario/UsuarioModelo';
 
 const Sesiones = sequelize.define('session', {
     idUser: {
@@ -19,6 +20,8 @@ const Sesiones = sequelize.define('session', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'sessions' });
+
+Sesiones.hasOne(Usuario, { as: 'usuario', foreignKey: 'idUser' });
 
 export {
     Sesiones
