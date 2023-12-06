@@ -4,7 +4,7 @@ class UbicacionServicio {
 
     async Obtener() {
         try{
-            return await Ubicaciones.findAll()
+            return await Ubicaciones.findAll({where: {estatus: 'A'}})
         }
         catch(error) {
             throw error
