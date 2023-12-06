@@ -4,9 +4,7 @@ const router = (app) => {
 
     const controlador = new UbicacionControlador()
 
-    app.get('/ubicaciones', (request, response)=> {
-        controlador.Obtener(request, response);
-    });
+    app.get('/ubicaciones', controlador.ObtenerUno);
     
     app.get('/ubicaciones/:id', (request, response)=> {
         controlador.ObtenerUno(request, response)

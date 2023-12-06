@@ -1,4 +1,5 @@
 import {UsuarioControlador} from './UsuarioControlador.js'
+import {ValidAuthor} from './validaciones.js'
 
 const router = (app) => {
 
@@ -12,7 +13,7 @@ const router = (app) => {
     
     app.post('/usuarios', controlador.Crear);
     
-    app.put('/usuarios/:id', controlador.modificar)
+    app.put('/usuarios/:id', controlador.Modificar)
     
     app.delete('/usuarios/:id', (request, response) =>{
         // controlador.Eliminar(request, response);
