@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/coneccion');
+import {Ubicaciones} from '../Ubicacion/UbicacionModelo'
 
 const Pokemon = sequelize.define('Pokemon', {
     nombre: {
@@ -35,6 +36,8 @@ const Pokemon = sequelize.define('Pokemon', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'pokemons' });
+
+Pokemon.hasOne(Ubicaciones, { as: 'ubicacion', foreignKey: 'idubicacion' });
 
 export {
     Pokemon
