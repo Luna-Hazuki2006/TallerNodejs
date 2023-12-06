@@ -20,7 +20,7 @@ class PokemonServicio {
         }
     }
    
-    async Crear(nombre, imagen, tipo, altura, peso, url, id, idubicacion){
+    async Crear(nombre, imagen, tipo, altura, peso, url, idubicacion){
         try{
             return await Pokemon.create({
                 nombre,
@@ -29,11 +29,45 @@ class PokemonServicio {
                 altura, 
                 peso, 
                 url, 
-                id, 
                 idubicacion
             })
         }
         catch(error) {
+            throw error
+        }
+    }
+
+    async Actualizar(id, nombre, imagen, tipo, altura, peso, url, idubicacion){
+        try{
+            return await Pokemon.update({
+                nombre,
+                imagen,
+                tipo,
+                altura, 
+                peso, 
+                url, 
+                idubicacion
+            }, {where: {id: id}}) // solo pasar eso en los otros
+        }
+        catch(error) {
+            throw error
+        }
+    }
+
+    async Eliminar(id) {
+        try{
+            return await Pokemon.destroy({where: {id: id}}) // solo pasar eso en los otros
+        }
+        catch(error) {
+            throw error
+        }
+    }
+
+    async ObtenerUno(id) {
+        try {
+            return await Pokemon.findOne({where: {id: id}})
+
+        } catch (error) {
             throw error
         }
     }
