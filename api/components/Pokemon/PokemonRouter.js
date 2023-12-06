@@ -5,15 +5,15 @@ const router = (app) => {
 
     const controlador = new PokemonControlador()
 
-    app.get('/pokemones');
+    app.get('/pokemones', controlador.Obtener);
     
-    app.get('/pokemones/:id', validarId)
+    app.get('/pokemones/:id', validarId, controlador.ObtenerUno)
     
-    app.post('/pokemones', validarCuerpo);
+    app.post('/pokemones', validarCuerpo, controlador.Crear);
     
-    app.put('/pokemones/:id', validarId, validarCuerpo)
+    app.put('/pokemones/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/pokemones/:id', validarId)
+    app.delete('/pokemones/:id', validarId, controlador.Eliminar)
     
 }
 
