@@ -1,4 +1,5 @@
 import {PokeusarioControlador} from './PokeusuarioControlador.js'
+import {validarId, validarCuerpo} from './validaciones.js'
 
 const router = (app) => {
 

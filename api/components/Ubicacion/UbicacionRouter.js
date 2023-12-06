@@ -1,4 +1,5 @@
 import {UbicacionControlador} from './UbicacionControlador.js'
+import {validarId, validarCuerpo} from './validaciones.js'
 
 const router = (app) => {
 

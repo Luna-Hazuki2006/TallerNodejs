@@ -1,4 +1,5 @@
 import {SesionControlador} from './SesionControlador.js'
+import {validarId, validarCuerpo} from './validaciones.js'
 
 const router = (app) => {
 

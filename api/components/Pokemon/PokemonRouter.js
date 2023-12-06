@@ -1,28 +1,19 @@
 import {PokemonControlador} from './PokemonControlador.js'
+import {validarId, validarCuerpo} from './validaciones.js'
 
 const router = (app) => {
 
     const controlador = new PokemonControlador()
 
-    app.get('/pokemones', (request, response)=> {
-        controlador.Obtener(request, response);
-    });
+    app.get('/pokemones');
     
-    app.get('/pokemones/:id', (request, response)=> {
-        controlador.ObtenerUno(request, response)
-    })
+    app.get('/pokemones/:id', validarId)
     
-    app.post('/pokemones', (request, response) => {
-        controlador.Crear(request, response)        
-    });
+    app.post('/pokemones', validarCuerpo);
     
-    app.put('/pokemones/:id', (request, response)=> {
-        controlador.Modificar(request, response)
-    })
+    app.put('/pokemones/:id', validarId, validarCuerpo)
     
-    app.delete('/pokemones/:id', (request, response) =>{
-        controlador.Eliminar(request, response);
-    })
+    app.delete('/pokemones/:id', validarId)
     
 }
 
