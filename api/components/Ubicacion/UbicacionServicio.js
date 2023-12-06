@@ -38,8 +38,8 @@ class UbicacionServicio {
     }
 
     async Eliminar(id) {
-        try{
-            return await Ubicaciones.destroy({where: {id: id}}) // solo pasar eso en los otros
+        try {
+            return await Ubicaciones.update({estatus: 'I'}, {where: {id: id}}) // solo pasar eso en los otros
         }
         catch(error) {
             throw error
