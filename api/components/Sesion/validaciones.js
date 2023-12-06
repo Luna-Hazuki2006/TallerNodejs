@@ -3,20 +3,23 @@ const validarId = (request, response, next) => {
         next(new Error('Debe ingresar la id'));
     }
     if (isNaN(request.params.id)) {
-        next(new Error('La id debe ser de tipo fecha'))
+        next(new Error('La id debe ser de tipo numérico'))
     }
     next()
 } 
 
 const validarCuerpo = (request, response, next) => {
-    if (!request.body.nombre) {
-        next(new Error('Debe ingresar el nombre'));
+    if (!request.body.idUser) {
+        next(new Error('Debe ingresar la id del usuario'));
     }
-    if (!request.body.descripcion) {
-        next(new Error('Debe ingresar la descripción'))
+    if (isNaN(request.body.idUser)) {
+        next(new Error('La id del usuario debe ser de tipo numérico'))
     }
-    if (!request.body.estatus) {
-        next(new Error('Debe ingresar el estatus'))
+    if (!request.headers.authorization.token) {
+        next(new Error('Debe ingresar el token'))
+    }
+    if (!request.body.login) {
+        next(new Error('Debe ingresar el login'))
     }
     next()
 } 
