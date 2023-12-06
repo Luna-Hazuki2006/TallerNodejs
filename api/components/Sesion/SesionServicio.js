@@ -11,16 +11,37 @@ class SesionServicio {
         }
     }
    
-    async Crear(id, idUser, token, login){
+    async Crear(idUser, token, login){
         try{
             return await Sesiones.create({
-                id,
                 idUser,
                 token,
                 login
             })
         }
         catch(error) {
+            throw error
+        }
+    }
+
+    async Actualizar(idUser, token, login){
+        try{
+            return await Sesiones.update({
+                idUser,
+                token,
+                login
+            }, {where: {id: id}}) // solo pasar eso en los otros
+        }
+        catch(error) {
+            throw error
+        }
+    }
+
+    async ObtenerUno(id) {
+        try {
+            return await Sesiones.findOne({where: {id: id}})
+
+        } catch (error) {
             throw error
         }
     }
