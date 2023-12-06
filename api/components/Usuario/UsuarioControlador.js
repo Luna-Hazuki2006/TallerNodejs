@@ -14,7 +14,20 @@ class UsuarioControlador {
 
         } catch (error) {
             console.error(error)
-            response.status(400).send({error: "Hubo un problema al crear el usario"})
+            response.status(400).send({"error": "Hubo un problema al crear el usuario"})
+        }
+    }
+
+    async Modificar(request, response) {
+        const servicio = new UsuarioServicio()
+        try {
+            const {nombre, apellido, correo, contraseña, cedula} = request.body
+            const id = request.params.id
+            await servicio.Actualizar(id, nombre, apellido, correo, contraseña, cedula)
+            response.status(200).send({"error": "Hubo un problema al actualizar el usario"})
+        } catch (error) {
+            console.error(error);
+            response.status(400).send({"error": "Hubo un problema al crear el usuario"})
         }
     }
 

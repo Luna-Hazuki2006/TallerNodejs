@@ -28,8 +28,8 @@ class UsuarioServicio {
         }
     }
 
-    async Actualizar(nombre, apellido, correo, contraseña, 
-        id, cedula){
+    async Actualizar(id, nombre, apellido, correo, 
+        contraseña, cedula){
         try{
             return await Usuario.update({
                 nombre,
@@ -40,6 +40,24 @@ class UsuarioServicio {
             }, {where: {id: id}}) // solo pasar eso en los otros
         }
         catch(error) {
+            throw error
+        }
+    }
+
+    async Eliminar(id) {
+        try{
+            return await Usuario.destroy({where: {id: id}}) // solo pasar eso en los otros
+        }
+        catch(error) {
+            throw error
+        }
+    }
+
+    async ObtenerUno(id) {
+        try {
+            return await Usuario.findOne({where: {id: id}})
+
+        } catch (error) {
             throw error
         }
     }
