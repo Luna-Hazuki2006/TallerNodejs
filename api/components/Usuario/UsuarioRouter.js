@@ -1,23 +1,19 @@
 import {UsuarioControlador} from './UsuarioControlador.js'
-import {ValidAuthor} from './validaciones.js'
+import {validarId, validarCuerpo} from './validaciones.js'
 
 const router = (app) => {
 
     const controlador = new UsuarioControlador()
 
-    app.get('/usuarios', controlador.obtener);
+    app.get('/usuarios', validarCuerpo, controlador.Obtener);
     
-    app.get('/usuarios/:id', (request, response)=> {
-        // controlador.ObtenerUno(request, response)
-    })
+    app.get('/usuarios/:id', validarId, controlador.ObtenerUno)
     
-    app.post('/usuarios', controlador.Crear);
+    app.post('/usuarios', validarCuerpo, controlador.Crear);
     
-    app.put('/usuarios/:id', controlador.Modificar)
+    app.put('/usuarios/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/usuarios/:id', (request, response) =>{
-        // controlador.Eliminar(request, response);
-    })
+    app.delete('/usuarios/:id', validarId, controlador.Eliminar)
     
 }
 
