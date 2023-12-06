@@ -5,15 +5,13 @@ const router = (app) => {
 
     const controlador = new SesionControlador()
 
-    app.get('/sesiones');
+    app.get('/sesiones', controlador.Obtener());
     
-    app.get('/sesiones/:id', validarId)
+    app.get('/sesiones/:id', validarId, controlador.ObtenerUno)
     
-    app.post('/sesiones', validarCuerpo);
+    app.post('/sesiones', validarCuerpo, controlador.Crear);
     
-    app.put('/sesiones/:id', validarId, validarCuerpo)
-    
-    app.delete('/sesiones/:id', validarId)
+    app.put('/sesiones/:id', validarId, validarCuerpo, controlador.Modificar)
     
 }
 

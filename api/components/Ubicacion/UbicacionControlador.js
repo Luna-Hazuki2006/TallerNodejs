@@ -6,10 +6,10 @@ class UbicacionControlador {
     async Crear(request, response) {
         // así se obtiene el token
         // request.headers.authorization
-        const servicio = new UbicacionControlador()
+        const servicio = new UbicacionServicio()
         try {
-            const {nombre, apellido, correo, contraseña, cedula} = request.body
-            await servicio.Crear(nombre, apellido, correo, contraseña, cedula)
+            const {idUser, token, login} = request.body
+            await servicio.Crear(idUser, token, login)
             response.status(200).send({mensaje: "Creaste un usario exitosamente"})
 
         } catch (error) {
@@ -19,11 +19,11 @@ class UbicacionControlador {
     }
 
     async Modificar(request, response) {
-        const servicio = new UbicacionControlador()
+        const servicio = new UbicacionServicio()
         try {
-            const {nombre, apellido, correo, contraseña, cedula} = request.body
+            const {idUser, token, login} = request.body
             const id = request.params.id
-            await servicio.Actualizar(id, nombre, apellido, correo, contraseña, cedula)
+            await servicio.Actualizar(id, idUser, token, login)
             response.status(200).send({mensaje: "Actualizaste al usuario exitósamente"})
         } catch (error) {
             console.error(error);
@@ -32,7 +32,7 @@ class UbicacionControlador {
     }
 
     async Obtener(request, response) {
-        const servicio = new UbicacionControlador()
+        const servicio = new UbicacionServicio()
         try {
             const todos = await servicio.Obtener()
             response.status(200).send({data: todos})
@@ -43,7 +43,7 @@ class UbicacionControlador {
     }
 
     async ObtenerUno(request, response) {
-        const servicio = new UbicacionControlador()
+        const servicio = new UbicacionServicio()
         try {
             const id = request.params.id
             const usuario = await servicio.ObtenerUno(id)
@@ -55,7 +55,7 @@ class UbicacionControlador {
     }
 
     async Eliminar(request, response) {
-        const servicio = new UbicacionControlador()
+        const servicio = new UbicacionServicio()
         try {
             const id = request.params.id
             await servicio.Eliminar(id)
