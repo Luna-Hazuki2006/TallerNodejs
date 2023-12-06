@@ -5,23 +5,15 @@ const router = (app) => {
 
     const controlador = new UbicacionControlador()
 
-    app.get('/ubicaciones', controlador.ObtenerUno);
+    app.get('/ubicaciones');
     
-    app.get('/ubicaciones/:id', (request, response)=> {
-        controlador.ObtenerUno(request, response)
-    })
+    app.get('/ubicaciones/:id', validarId)
     
-    app.post('/ubicaciones', (request, response) => {
-        controlador.Crear(request, response)        
-    });
+    app.post('/ubicaciones', validarCuerpo);
     
-    app.put('/ubicaciones/:id', (request, response)=> {
-        controlador.Modificar(request, response)
-    })
+    app.put('/ubicaciones/:id', validarId, validarCuerpo)
     
-    app.delete('/ubicaciones/:id', (request, response) =>{
-        controlador.Eliminar(request, response);
-    })
+    app.delete('/ubicaciones/:id', validarId)
     
 }
 
