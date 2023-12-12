@@ -14,7 +14,7 @@ class PokemonServicio {
                     },
                 ],
             })
-        }
+        } 
         catch(error) {
             throw error
         }
